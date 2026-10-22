@@ -26,14 +26,7 @@ Forge Neo / Stable Diffusion WebUI 的对话式智能体扩展。它将自然语
 
 可在 Agent 设置界面配置文本模型、图像/视频服务、模型名、API 地址和密钥。兼容 OpenAI API 的本地服务通常需要填写其 `/v1` 地址及服务要求的模型名；云端服务应按服务商文档配置端点、模型和 Token。文本、图像和视频配置分别保存。
 
-`agent_config.json` 可能包含 API 密钥和本机模型路径。公共仓库中的配置应仅保留空密钥和通用默认值；本机真实配置不要提交或公开。使用本地推理时，请确认 WebUI 进程可以访问推理服务地址。
 
-## REST API
-
-WebUI 启动 API 后，扩展注册：
-
-- `GET /agent/api/tools`：获取工具定义/可用工具列表。
-- `POST /agent/api/execute_tool`：提交工具名称与参数并返回执行结果。
 
 接口受 WebUI 的 API 启动及认证设置约束。不要将未启用认证的 WebUI API 直接暴露到公网；远程使用时应配置认证并使用可信的 HTTPS 代理。
 
@@ -43,12 +36,6 @@ WebUI 启动 API 后，扩展注册：
 - 生成图表及媒体输出写入扩展或 WebUI 的输出目录，临时上传文件写入运行时临时目录。
 - 这些数据和输出不属于源代码，发布时不应提交 `data/`、`outputs/` 或 `tmp/` 中的个人文件。
 
-## 仓库结构
-
-- `scripts/`：WebUI UI、对话/路由、REST API、工具注册与各领域工具实现。
-- `skills/`：随插件提供的 Agent Skills。
-- `runtime/archify/`：Archify 的 schema、校验器、渲染器、示例及第三方声明。
-- `requirements.txt`：扩展额外依赖。
 
 ## 安全提示
 
